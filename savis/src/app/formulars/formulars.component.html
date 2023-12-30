@@ -1,0 +1,45 @@
+<div class="max-w-7xl mx-auto space-y-4 p-8 lg:px-12 lg:flex flex-col h-full">
+  <div *ngIf="!showFormular" class="px-2 py-3 text-base font-bold text-white bg-[#2D3F8F] w-fit rounded-lg">
+    Zoznam dostupných formulárov
+  </div>
+  <div *ngIf="showFormular" class="px-2 py-3 text-base font-bold text-white bg-[#2D3F8F] w-fit rounded-lg">
+    Žiadosť a podklady k úhrade konferenčného poplatku
+  </div>
+
+
+  <div *ngIf="!showFormular" class="lg:w-3/4 block items-center text-left space-y-4 ">
+    <div *ngFor="let item of items" class="flex text-xs flex-row flex-grow space-x-6">
+      <div class="flex px-2 py-1.5 w-full rounded-lg border space-x-2 border-black/70 text-black/70">
+        <span class="rounded border flex items-center justify-center aspect-square w-4 h-4 text-black border-black">{{ item.index }}</span>
+        <p>{{ item.text }}</p>
+      </div>
+      <div (click)="changeFormular()" class="text-xs bg-[#2D3F8F] rounded-lg border px-2 py-1.5 border-black/70 text-white items-center">
+        <p>Vyplniť</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showFormular" class="w-full space-y-6">
+    <div class="flex flex-col space-y-4">
+      <div *ngFor="let item of formulars" class="lg:flex flex-row flex-grow items-center">
+        <div class="flex w-1/2 mb-1 lg:mb-0">{{item.text}}</div>
+        <div class="flex flex-grow">
+          <input type="text" class="bg-white border border-black/70 text-black text-xs rounded-lg block w-full px-2 py-1.5 placeholder-text-black/70" placeholder="">
+        </div>
+      </div>
+    </div>
+    <div (click)="changeModal()" class="w-fit ml-auto text-xs bg-[#2D3F8F] rounded-lg border px-2 py-1.5 border-black/70 text-white items-center">
+      <p>Aktualizovať údaje</p>
+    </div>
+
+  </div>
+
+  <div *ngIf="showModal" class="fixed inset-0 w-screen h-screen bg-slate-800/20 backdrop-blur-sm"></div>
+  <div *ngIf="showModal" class="w-full h-screen fixed top-0 left-0 flex items-center justify-center z-10">
+    <div class="w-11/12 lg:w-3/4 xl:w-1/3 mx-auto max-h-[90%] overflow-auto rounded-lg p-6 bg-white">
+      <h2 class="text-center font-bold">Formulár “Ziadanka na zálohu na pracovnú cestu” bol úspesne zaevidovaný.</h2>
+      <div class="ml-auto cursor-pointer border border-black/70 w-fit flex items-center rounded-lg bg-[#EAECF4] py-1.5 px-4 text-black/70">
+        <a href="/start">OK</a>
+      </div>
+    </div>
+  </div>
+</div>

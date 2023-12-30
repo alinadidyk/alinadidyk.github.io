@@ -1,0 +1,55 @@
+<header class="bg-[#353A3F]">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-8 lg:px-12" aria-label="Global">
+    <div class="flex flex-1">
+      <div class="hidden lg:flex lg:gap-x-8 text-white/70">
+        <a [routerLink]="['/formulars']" routerLinkActive="font-bold !text-white" class="text-sm leading-6">Formuláre</a>
+        <a [routerLink]="['/registration']" routerLinkActive="font-bold !text-white" class="text-sm leading-6">Registrácia použivateľov</a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" (click)="toogleMenu()" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <a [routerLink]="['/start']" class="-m-1.5 p-1.5">
+      <p class="uppercase text-white text-2xl ">savis</p>
+    </a>
+    <div class="flex flex-1 justify-end">
+      <div class="hidden lg:flex lg:gap-x-8 text-white/70">
+        <a [routerLink]="['/profile']"  class="text-sm leading-6 " routerLinkActive="font-bold !text-white">Profil</a>
+        <a [routerLink]="['/login']" routerLinkActive="font-bold !text-white" class="text-sm leading-6 ">Odhlásenie</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div *ngIf="showMenu" class="lg:hidden" role="dialog" aria-modal="true">
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div class="fixed inset-0 z-10"></div>
+    <div class="fixed inset-y-0 left-0 z-10 w-full bg-[#353A3F] overflow-y-auto p-8 lg:px-12">
+      <div class="flex items-center justify-between">
+        <div class="flex flex-1">
+          <button type="button" (click)="toogleMenu()" class="-m-2.5 rounded-md p-2.5 text-white">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <a [routerLink]="['/start']" class="-m-1.5 p-1.5">
+          <p class="uppercase text-white text-2xl ">savis</p>
+        </a>
+        <div class="flex flex-1 justify-end">
+        </div>
+      </div>
+      <div (click)="toogleMenu()" class="mt-6 text-white/70 space-y-2">
+        <a [routerLink]="['/formulars']" routerLinkActive="font-bold !text-white" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7">Formuláre</a>
+        <a [routerLink]="['/registration']" routerLinkActive="font-bold !text-white" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7">Registrácia použivateľov</a>
+        <a [routerLink]="['/profile']" routerLinkActive="font-bold !text-white" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7">Profil</a>
+        <a [routerLink]="['/login']" routerLinkActive="font-bold !text-white" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7">Odhlásenie</a>
+      </div>
+    </div>
+  </div>
+</header>
